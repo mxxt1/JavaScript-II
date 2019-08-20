@@ -116,9 +116,9 @@ console.log(companyList);
 let companyDonations = [];
 let runnerDonations = [];
 //forEach, pull runner company and donation amount for each runner
-runners.forEach(x =>{
-  return runnerDonations.push({`${x.company_name}`:x.donation});  //figure out how to place a template within an object
-});
+// runners.forEach(x =>{
+//   return runnerDonations.push({`${x.company_name}`:x.donation});  //figure out how to place a template within an object
+// });
 console.log(runnerDonations);
 
 //sum donations by company
