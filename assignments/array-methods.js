@@ -88,8 +88,41 @@ console.log(ticketPriceTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 - Marketing needs an updated email list with first_name, last_name, email
 
-// Problem 2
+let emailList = [];
+runners.forEach(x =>{
+  emailList.push(`${x.first_name}, ${x.last_name}, ${x.email}`);
+});
+// runners.forEach(x =>{
+//   return emailList.push(`${x.first_name} ${x.last_name} ${x.email}`)};
 
-// Problem 3
+console.log(emailList);
+
+
+// Problem 2 - Marketing needs a list of represented companies
+
+let companyList = [];
+runners.map(x =>{
+  if (!companyList.includes(x.company_name)){
+    companyList.push(x.company_name);
+  } else {console.log("already exists");}
+})
+
+console.log(companyList);
+
+// Problem 3 - Marketing needs a list of TOTAL DONATIONS per COMPANY
+//catch array
+let companyDonations = [];
+let runnerDonations = [];
+//forEach, pull runner company and donation amount for each runner
+runners.forEach(x =>{
+  return runnerDonations.push({`${x.company_name}`:x.donation});  //figure out how to place a template within an object
+});
+console.log(runnerDonations);
+
+//sum donations by company
+runners.reduce((acc,x) =>{
+
+
+})
