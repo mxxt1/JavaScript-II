@@ -58,28 +58,71 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+runners.forEach(x=>{
+  fullNames.push(`${x.first_name} ${x.last_name}`);
+});
 console.log(fullNames);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
-let firstNamesAllCaps = [];
+let firstNamesAllCaps = runners.map(x =>{
+  return x.first_name.toUpperCase();
+});
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = [];
+let runnersLargeSizeShirt = runners.filter(x =>{
+  return x.shirt_size === "L";
+
+});
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal = runners.reduce((acc,x) => {
+  return acc + x.donation;
+},0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 - Marketing needs an updated email list with first_name, last_name, email
 
-// Problem 2
+let emailList = [];
+runners.forEach(x =>{
+  emailList.push(`${x.first_name}, ${x.last_name}, ${x.email}`);
+});
+// runners.forEach(x =>{
+//   return emailList.push(`${x.first_name} ${x.last_name} ${x.email}`)};
 
-// Problem 3
+console.log(emailList);
+
+
+// Problem 2 - Marketing needs a list of represented companies
+
+let companyList = [];
+runners.map(x =>{
+  if (!companyList.includes(x.company_name)){
+    companyList.push(x.company_name);
+  } else {console.log("already exists");}
+})
+
+console.log(companyList);
+
+// Problem 3 - Marketing needs a list of TOTAL DONATIONS per COMPANY
+//catch array
+let companyDonations = [];
+let runnerDonations = [];
+//forEach, pull runner company and donation amount for each runner
+// runners.forEach(x =>{
+//   return runnerDonations.push({`${x.company_name}`:x.donation});  //figure out how to place a template within an object
+// });
+console.log(runnerDonations);
+
+//sum donations by company
+runners.reduce((acc,x) =>{
+
+
+})
